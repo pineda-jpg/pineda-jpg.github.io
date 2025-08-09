@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     loadTheme();
     setupBookingSystem();
+    
+    // Ensure bottom navigation is visible immediately
+    setTimeout(ensureBottomNavVisibility, 100);
 });
 
 // Initialize page elements
@@ -29,6 +32,9 @@ function initializePage() {
     if (mobileMenuBackdrop) {
         mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
     }
+    
+    // Ensure bottom navigation is visible on mobile devices
+    ensureBottomNavVisibility();
 }
 
 // Set up event listeners
@@ -472,6 +478,60 @@ function announceToScreenReader(message) {
         announcement.remove();
     }, 1000);
 }
+
+// Ensure bottom navigation is visible on mobile devices
+function ensureBottomNavVisibility() {
+    const bottomNav = document.querySelector('.bottom-nav');
+    if (bottomNav) {
+        // Check if device is mobile/tablet
+        const isMobile = window.innerWidth <= 1024;
+        const userAgent = navigator.userAgent;
+        const isTablet = /iPad|Android|Tablet|Mobile/i.test(userAgent);
+        
+        console.log('Device info:', {
+            width: window.innerWidth,
+            height: window.innerHeight,
+            userAgent: userAgent,
+            isMobile: isMobile,
+            isTablet: isTablet
+        });
+        
+        if (isMobile || isTablet) {
+            // Force display flex for mobile devices
+            bottomNav.style.display = 'flex';
+            
+            // Add a class to ensure visibility
+            bottomNav.classList.add('mobile-visible');
+            
+            // Log for debugging
+            console.log('Bottom navigation enabled for mobile/tablet device:', window.innerWidth + 'px');
+            
+            // Double-check visibility
+            setTimeout(() => {
+                if (bottomNav.style.display !== 'flex') {
+                    bottomNav.style.display = 'flex';
+                    console.log('Forced bottom navigation display to flex');
+                }
+            }, 50);
+        } else {
+            // Hide on desktop
+            bottomNav.style.display = 'none';
+            bottomNav.classList.remove('mobile-visible');
+            console.log('Bottom navigation hidden for desktop device:', window.innerWidth + 'px');
+        }
+    } else {
+        console.warn('Bottom navigation element not found');
+    }
+}
+
+// Handle window resize to update bottom navigation visibility
+window.addEventListener('resize', ensureBottomNavVisibility);
+
+// Handle orientation change for mobile devices
+window.addEventListener('orientationchange', function() {
+    // Wait for orientation change to complete
+    setTimeout(ensureBottomNavVisibility, 100);
+});
 
 // Initialize step display
 document.addEventListener('DOMContentLoaded', function() {

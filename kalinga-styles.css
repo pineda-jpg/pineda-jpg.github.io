@@ -352,6 +352,115 @@ body {
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Ensure bottom navigation is visible on mobile devices */
+@media (max-width: 1024px) {
+    .bottom-nav {
+        display: flex !important;
+        justify-content: space-around;
+        align-items: center;
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-light);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    [data-theme="dark"] .bottom-nav {
+        background: var(--bg-secondary);
+        border-top-color: var(--border-medium);
+    }
+    
+    /* Adjust main content padding for bottom nav */
+    .main-content {
+        padding-bottom: 100px;
+    }
+}
+
+/* Additional mobile-specific bottom navigation styles */
+@media (max-width: 768px) {
+    .bottom-nav {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .bottom-nav-item {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+    
+    .bottom-nav-item i {
+        font-size: var(--font-size-base);
+    }
+    
+    .bottom-nav-item span {
+        font-size: var(--font-size-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .bottom-nav {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .bottom-nav-item {
+        padding: var(--spacing-xs);
+        gap: var(--spacing-xs);
+    }
+    
+    .bottom-nav-item i {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .bottom-nav-item span {
+        font-size: var(--font-size-xs);
+        font-weight: 500;
+    }
+}
+
+/* Force visibility for mobile devices */
+.bottom-nav.mobile-visible {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure bottom navigation items are properly spaced */
+.bottom-nav-item {
+    min-width: 0;
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Handle orientation changes for mobile devices */
+@media (orientation: landscape) and (max-width: 1024px) {
+    .bottom-nav {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .bottom-nav-item {
+        padding: var(--spacing-xs);
+    }
+    
+    .bottom-nav-item i {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .bottom-nav-item span {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Ensure bottom navigation works on all mobile devices */
+@media (max-width: 1024px) and (min-width: 481px) {
+    .bottom-nav {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
 .bottom-nav-item {
     display: flex;
     flex-direction: column;
@@ -1671,33 +1780,7 @@ body {
     
 }
 
-/* Show bottom navigation on mobile for all screen sizes */
-@media (max-width: 1024px) {
-    .bottom-nav {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: var(--bg-primary);
-        border-top: 1px solid var(--border-light);
-        padding: var(--spacing-sm) 0;
-        z-index: var(--z-fixed);
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    [data-theme="dark"] .bottom-nav {
-        background: var(--bg-secondary);
-        border-top-color: var(--border-medium);
-    }
-    
-    /* Adjust main content padding for bottom nav */
-    .main-content {
-        padding-bottom: 100px;
-    }
-}
+
 
 /* Medium Mobile Devices */
 @media (max-width: 768px) and (min-width: 481px) {
