@@ -42,16 +42,31 @@ function initializeMobileMenu() {
     const menuClose = document.getElementById('menuClose');
     
     if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            menuClose?.focus();
-            announceToScreenReader('Mobile menu opened');
+        // Toggle menu on click
+        menuToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openMobileMenu();
+        });
+        
+        // Touch support for mobile devices
+        menuToggle.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            openMobileMenu();
         });
     }
     
     if (menuClose && mobileMenu) {
-        menuClose.addEventListener('click', () => {
+        // Close menu on click
+        menuClose.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+        
+        // Touch support for close button
+        menuClose.addEventListener('touchstart', (e) => {
+            e.preventDefault();
             closeMobileMenu();
         });
     }
@@ -69,15 +84,136 @@ function initializeMobileMenu() {
             closeMobileMenu();
         }
     });
+    
+    // Handle swipe gestures for mobile
+    let startX = 0;
+    let currentX = 0;
+    
+    mobileMenu?.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    mobileMenu?.addEventListener('touchmove', (e) => {
+        currentX = e.touches[0].clientX;
+    });
+    
+    mobileMenu?.addEventListener('touchend', (e) => {
+        const swipeDistance = startX - currentX;
+        const minSwipeDistance = 100;
+        
+        if (swipeDistance > minSwipeDistance) {
+            // Swipe left to close
+            closeMobileMenu();
+        }
+    });
+    
+    // Prevent body scroll when menu is open
+    mobileMenu?.addEventListener('touchmove', (e) => {
+        if (mobileMenu.classList.contains('active')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+    
+    // Handle mobile menu item clicks
+    const mobileNavItems = mobileMenu?.querySelectorAll('.mobile-nav-item');
+    mobileNavItems?.forEach(item => {
+        item.addEventListener('click', () => {
+            // Add a small delay to show the click effect before navigation
+            setTimeout(() => {
+                closeMobileMenu();
+            }, 150);
+        });
+        
+        // Touch feedback
+        item.addEventListener('touchstart', () => {
+            item.style.transform = 'scale(0.98)';
+        });
+        
+        item.addEventListener('touchend', () => {
+            item.style.transform = '';
+        });
+    });
+}
+
+function openMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const body = document.body;
+    
+    if (mobileMenu) {
+        // Add active class
+        mobileMenu.classList.add('active');
+        
+        // Show backdrop
+        if (backdrop) {
+            backdrop.classList.add('active');
+        }
+        
+        // Prevent body scroll
+        body.style.overflow = 'hidden';
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+        
+        // Focus management
+        const menuClose = document.getElementById('menuClose');
+        if (menuClose) {
+            setTimeout(() => {
+                menuClose.focus();
+            }, 100);
+        }
+        
+        // Announce to screen reader
+        announceToScreenReader('Mobile menu opened');
+        
+        // Add escape key listener
+        document.addEventListener('keydown', handleEscapeKey);
+        
+        // Add backdrop click listener
+        if (backdrop) {
+            backdrop.addEventListener('click', closeMobileMenu);
+        }
+    }
 }
 
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
+    const backdrop = document.getElementById('mobileMenuBackdrop');
+    const body = document.body;
+    
     if (mobileMenu) {
+        // Remove active class
         mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-        document.getElementById('menuToggle')?.focus();
+        
+        // Hide backdrop
+        if (backdrop) {
+            backdrop.classList.remove('active');
+            backdrop.removeEventListener('click', closeMobileMenu);
+        }
+        
+        // Restore body scroll
+        body.style.overflow = '';
+        body.style.position = '';
+        body.style.width = '';
+        
+        // Focus management
+        const menuToggle = document.getElementById('menuToggle');
+        if (menuToggle) {
+            setTimeout(() => {
+                menuToggle.focus();
+            }, 100);
+        }
+        
+        // Announce to screen reader
         announceToScreenReader('Mobile menu closed');
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleEscapeKey);
+    }
+}
+
+function handleEscapeKey(e) {
+    if (e.key === 'Escape') {
+        closeMobileMenu();
     }
 }
 
