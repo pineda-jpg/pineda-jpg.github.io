@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara, Kape! - Anonymous Listener | Mello ☁️</title>
+    <link rel="stylesheet" href="tara-kape-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Mello</span>
+                </a>
+                <img src="logo.png" alt="Mello Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1 class="brand-title">☕ Tara, Kape!</h1>
+                    <p class="brand-subtitle">Anonymous listener conversations</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="signin.html" class="btn btn-primary">Sign In</a>
+                <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-icon" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>Tara, Kape! Menu</h2>
+            <button class="btn-icon" id="menuClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#main-content" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#listeners" class="mobile-nav-item">
+                <i class="fas fa-users"></i>
+                <span>Listeners</span>
+            </a>
+            <a href="#start-chat" class="mobile-nav-item">
+                <i class="fas fa-phone"></i>
+                <span>Start Chat</span>
+            </a>
+            <a href="#coffee-credits" class="mobile-nav-item">
+                <i class="fas fa-coffee"></i>
+                <span>Coffee Credits</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Have a Coffee Chat</h1>
+                <p class="hero-subtitle">Talk to anonymous listeners who care and understand</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Active Listeners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">To Kalinga</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="scrollToSection('start-chat')">
+                        <i class="fas fa-phone"></i>
+                        Start Audio Chat
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('listeners')">
+                        <i class="fas fa-users"></i>
+                        Meet Listeners
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Listeners Section -->
+        <section id="listeners" class="listeners-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Meet Our Listeners</h2>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-globe"></i>
+                            All Listeners
+                        </button>
+                        <button class="filter-btn" data-filter="online">
+                            <i class="fas fa-circle"></i>
+                            Online Now
+                        </button>
+                        <button class="filter-btn" data-filter="top-rated">
+                            <i class="fas fa-star"></i>
+                            Top Rated
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="listeners-grid" id="listenersGrid">
+                    <!-- Listener cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Chat Section -->
+        <section id="start-chat" class="chat-section">
+            <div class="container">
+                <h2 class="section-title">Start Your Audio Chat</h2>
+                <div class="chat-card">
+                    <div class="chat-header">
+                        <div class="chat-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="chat-info">
+                            <h3>Audio Conversation</h3>
+                            <p>Connect with a listener through voice call</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-options">
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-random"></i>
+                            </div>
+                            <h4>Quick Match</h4>
+                            <p>Get connected with the first available listener</p>
+                            <button class="btn-primary" onclick="startQuickMatch()">
+                                <i class="fas fa-play"></i>
+                                Start Now
+                            </button>
+                        </div>
+                        
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4>Choose Listener</h4>
+                            <p>Select a specific listener based on your preference</p>
+                            <button class="btn-secondary" onclick="chooseListener()">
+                                <i class="fas fa-users"></i>
+                                Browse Listeners
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-features">
+                        <h4>What to Expect</h4>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <i class="fas fa-clock"></i>
+                                <span>15-30 minute conversations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-user-secret"></i>
+                                <span>Completely anonymous</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Non-judgmental listening</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-gift"></i>
+                                <span>Send coffee credits as thanks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coffee Credits Section -->
+        <section id="coffee-credits" class="coffee-credits-section">
+            <div class="container">
+                <h2 class="section-title">Coffee Credits</h2>
+                <p class="section-subtitle">Show appreciation and support mental health services</p>
+                
+                <div class="coffee-info-card">
+                    <div class="coffee-benefit">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>40% Goes to Kalinga</h3>
+                            <p>Your coffee credits help fund professional mental health services for those in need.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="coffee-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">₱50</span>
+                                <span class="stat-label">Average Gift</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">1,247</span>
+                                <span class="stat-label">Coffee Sent</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-number">₱24,940</span>
+                                <span class="stat-label">To Kalinga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="coffee-options">
+                    <h3>Send Coffee Credits</h3>
+                    <div class="coffee-packages">
+                        <div class="coffee-package">
+                            <div class="package-icon">
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <h4>1 Coffee</h4>
+                            <p class="price">₱50</p>
+                            <p class="benefit">₱20 to Kalinga</p>
+                            <button class="btn-primary" onclick="sendCoffee(50)">
+                                <i class="fas fa-gift"></i>
+                                Send Coffee
+                            </button>
+                        </div>
+                        
+                        <div class="coffee-package popular">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="package-icon">
+                                <i class="fas fa-coffee"></i>
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <h4>2 Coffees</h4>
+                            <p class="price">₱100</p>
+                            <p class="benefit">₱40 to Kalinga</p>
+                            <button class="btn-primary" onclick="sendCoffee(100)">
+                                <i class="fas fa-gift"></i>
+                                Send Coffee
+                            </button>
+                        </div>
+                        
+                        <div class="coffee-package">
+                            <div class="package-icon">
+                                <i class="fas fa-coffee"></i>
+                                <i class="fas fa-coffee"></i>
+                                <i class="fas fa-coffee"></i>
+                            </div>
+                            <h4>3 Coffees</h4>
+                            <p class="price">₱200</p>
+                            <p class="benefit">₱80 to Kalinga</p>
+                            <button class="btn-primary" onclick="sendCoffee(200)">
+                                <i class="fas fa-gift"></i>
+                                Send Coffee
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works-section">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Start a Call</h3>
+                        <p>Click "Start Audio Chat" to connect with an available listener</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Talk Freely</h3>
+                        <p>Share your thoughts and feelings in a safe, anonymous space</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3>Send Coffee</h3>
+                        <p>Show appreciation by sending coffee credits (optional)</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Support Others</h3>
+                        <p>40% of coffee credits go to fund Kalinga mental health services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety & Privacy Section -->
+        <section class="safety-section">
+            <div class="container">
+                <h2 class="section-title">Your Safety & Privacy</h2>
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <i class="fas fa-user-secret"></i>
+                        <h3>100% Anonymous</h3>
+                        <p>No personal information is shared. You remain completely anonymous.</p>
+                    </div>
+                    <div class="safety-item">
+                        <i class="fas fa-lock"></i>
+                        <h3>Encrypted Calls</h3>
+                        <p>All audio calls are end-to-end encrypted for your privacy.</p>
+                    </div>
+                    <div class="safety-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Safe Space</h3>
+                        <p>Our listeners are trained to provide a non-judgmental, supportive environment.</p>
+                    </div>
+                    <div class="safety-item">
+                        <i class="fas fa-ban"></i>
+                        <h3>No Recording</h3>
+                        <p>Calls are never recorded. What you share stays between you and the listener.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Call Modal -->
+    <div class="modal" id="callModal">
+        <div class="modal-content call-modal">
+            <div class="call-header">
+                <div class="call-status">
+                    <i class="fas fa-phone"></i>
+                    <span>Connecting...</span>
+                </div>
+                <button class="btn-icon call-close" onclick="endCall()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="call-body">
+                <div class="caller-info">
+                    <div class="caller-avatar">
+                        <img src="https://via.placeholder.com/80x80/ea3097/ffffff?text=LS" alt="Listener">
+                    </div>
+                    <h3>Sarah</h3>
+                    <p>Your listener</p>
+                    <div class="call-timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="callTimer">00:00</span>
+                    </div>
+                </div>
+                
+                <div class="call-controls">
+                    <button class="call-btn mute" id="muteBtn" onclick="toggleMute()">
+                        <i class="fas fa-microphone"></i>
+                        <span>Mute</span>
+                    </button>
+                    <button class="call-btn end-call" onclick="endCall()">
+                        <i class="fas fa-phone-slash"></i>
+                        <span>End Call</span>
+                    </button>
+                    <button class="call-btn speaker" id="speakerBtn" onclick="toggleSpeaker()">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Speaker</span>
+                    </button>
+                </div>
+                
+                <div class="call-features">
+                    <button class="feature-btn" onclick="sendCoffeeAfterCall()">
+                        <i class="fas fa-coffee"></i>
+                        <span>Send Coffee</span>
+                    </button>
+                    <button class="feature-btn" onclick="reportIssue()">
+                        <i class="fas fa-flag"></i>
+                        <span>Report Issue</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coffee Modal -->
+    <div class="modal" id="coffeeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>☕ Send Coffee Credits</h3>
+                <button class="btn-icon modal-close" onclick="closeCoffeeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="coffee-recipient">
+                    <img src="https://via.placeholder.com/60x60/ea3097/ffffff?text=LS" alt="Listener">
+                    <div>
+                        <h4>Sarah</h4>
+                        <p>Your listener</p>
+                    </div>
+                </div>
+                <p>Choose how many coffee credits to send:</p>
+                <div class="coffee-options-modal">
+                    <button class="coffee-option-modal" data-amount="50">
+                        <i class="fas fa-coffee"></i>
+                        <span>1 Coffee</span>
+                        <span class="price">₱50</span>
+                    </button>
+                    <button class="coffee-option-modal" data-amount="100">
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <span>2 Coffees</span>
+                        <span class="price">₱100</span>
+                    </button>
+                    <button class="coffee-option-modal" data-amount="200">
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <span>3 Coffees</span>
+                        <span class="price">₱200</span>
+                    </button>
+                </div>
+                <div class="coffee-benefit-modal">
+                    <i class="fas fa-heart"></i>
+                    <span>40% of proceeds go to Kalinga beneficiaries</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeCoffeeModal()">Cancel</button>
+                <button class="btn-primary" onclick="confirmCoffee()">Send Coffee</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Mello ☁️</h3>
+                <p>Your quiet space to vent, talk, and heal</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="himpil.html" class="footer-link">Himpil</a>
+                <a href="kalinga.html" class="footer-link">Kalinga</a>
+                <a href="#" class="footer-link">Crisis Resources</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mello. Made with ❤️ for mental wellness.</p>
+        </div>
+    </footer>
+
+    <script src="tara-kape-script.js"></script>
+</body>
+</html> 

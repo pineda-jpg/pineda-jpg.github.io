@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mello ☁️ - Practitioner Dashboard</title>
+    <link rel="stylesheet" href="practitioner-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Mello Logo" class="brand-logo">
+                <div class="brand-text">
+                    <span>Mello ☁️</span>
+                    <span class="brand-subtitle">Practitioner Portal</span>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-icon mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button class="btn-icon" id="notificationsBtn" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="practitioner-profile">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQELDOMtChakcQ/profile-displayphoto-scale_200_200/B4DZfyf1ttHAAc-/0/1752120125092?e=2147483647&v=beta&t=maMp4i21W2hrRucnWeeDTwd1KSEN5PiOEU-doxxwrlQ" alt="Dr. Santos" class="profile-avatar">
+                    <div class="profile-info">
+                        <span class="profile-name">Dr. Angelica Tiongco</span>
+                        <span class="profile-role">Psychologist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#appointments" class="nav-item" data-section="appointments">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="#patients" class="nav-item" data-section="patients">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+                <a href="#consultations" class="nav-item" data-section="consultations">
+                    <i class="fas fa-comments"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="#fees" class="nav-item" data-section="fees">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Fees & Payments</span>
+                </a>
+                <a href="#schedule" class="nav-item" data-section="schedule">
+                    <i class="fas fa-clock"></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="#reports" class="nav-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#settings" class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p class="section-subtitle">Welcome back, Dr. Santos! Here's your practice overview.</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Today's Appointments</h3>
+                            <p class="stat-number">8</p>
+                            <p class="stat-change positive">+2 from yesterday</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Active Patients</h3>
+                            <p class="stat-number">47</p>
+                            <p class="stat-change positive">+3 this week</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-peso-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>This Month's Earnings</h3>
+                            <p class="stat-number">₱85,420</p>
+                            <p class="stat-change positive">+12% from last month</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Average Rating</h3>
+                            <p class="stat-number">4.8</p>
+                            <p class="stat-change neutral">Based on 156 reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="actions-grid">
+                        <button class="action-card">
+                            <i class="fas fa-plus"></i>
+                            <span>New Consultation</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>Schedule Appointment</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-file-medical"></i>
+                            <span>View Reports</span>
+                        </button>
+                        <button class="action-card">
+                            <i class="fas fa-cog"></i>
+                            <span>Update Availability</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Appointment Completed</h4>
+                                <p>Session with Ana Dela Cruz completed successfully</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>New Patient Registration</h4>
+                                <p>Carlos Mendoza registered for initial consultation</p>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>New Review</h4>
+                                <p>5-star review from Maria Garcia</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments" class="content-section">
+                <div class="section-header">
+                    <h1>Appointments</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Appointment
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-filter"></i>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+
+                <div class="appointments-container">
+                    <div class="appointment-filters">
+                        <button class="filter-btn active" data-filter="today">Today</button>
+                        <button class="filter-btn" data-filter="week">This Week</button>
+                        <button class="filter-btn" data-filter="month">This Month</button>
+                        <button class="filter-btn" data-filter="all">All</button>
+                    </div>
+
+                    <div class="appointments-list">
+                        <div class="appointment-card upcoming">
+                            <div class="appointment-time">
+                                <span class="time">09:00 AM</span>
+                                <span class="duration">60 min</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Ana Dela Cruz</h4>
+                                <p>Follow-up Session - Anxiety Management</p>
+                                <div class="appointment-meta">
+                                    <span class="type">Video Call</span>
+                                    <span class="status confirmed">Confirmed</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-icon" title="Start Session">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="btn-icon" title="Reschedule">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                                <button class="btn-icon" title="Cancel">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="appointment-card upcoming">
+                            <div class="appointment-time">
+                                <span class="time">10:30 AM</span>
+                                <span class="duration">45 min</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Carlos Mendoza</h4>
+                                <p>Initial Consultation</p>
+                                <div class="appointment-meta">
+                                    <span class="type">In-Person</span>
+                                    <span class="status confirmed">Confirmed</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-icon" title="Start Session">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <button class="btn-icon" title="Reschedule">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </button>
+                                <button class="btn-icon" title="Cancel">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="appointment-card completed">
+                            <div class="appointment-time">
+                                <span class="time">08:00 AM</span>
+                                <span class="duration">60 min</span>
+                            </div>
+                            <div class="appointment-details">
+                                <h4>Maria Garcia</h4>
+                                <p>Depression Therapy Session</p>
+                                <div class="appointment-meta">
+                                    <span class="type">Video Call</span>
+                                    <span class="status completed">Completed</span>
+                                </div>
+                            </div>
+                            <div class="appointment-actions">
+                                <button class="btn-icon" title="View Notes">
+                                    <i class="fas fa-file-medical"></i>
+                                </button>
+                                <button class="btn-icon" title="Schedule Follow-up">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patients Section -->
+            <section id="patients" class="content-section">
+                <div class="section-header">
+                    <h1>Patients</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search patients...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="patients-grid">
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://via.placeholder.com/60x60/667eea/ffffff?text=AD" alt="Ana Dela Cruz">
+                        </div>
+                        <div class="patient-info">
+                            <h4>Ana Dela Cruz</h4>
+                            <p>Age: 28 | Last visit: 2 days ago</p>
+                            <div class="patient-tags">
+                                <span class="tag">Anxiety</span>
+                                <span class="tag">Depression</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-secondary">View Profile</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://via.placeholder.com/60x60/764ba2/ffffff?text=CM" alt="Carlos Mendoza">
+                        </div>
+                        <div class="patient-info">
+                            <h4>Carlos Mendoza</h4>
+                            <p>Age: 35 | Last visit: 1 week ago</p>
+                            <div class="patient-tags">
+                                <span class="tag">Stress</span>
+                                <span class="tag">Work Issues</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-secondary">View Profile</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://via.placeholder.com/60x60/4facfe/ffffff?text=MG" alt="Maria Garcia">
+                        </div>
+                        <div class="patient-info">
+                            <h4>Maria Garcia</h4>
+                            <p>Age: 42 | Last visit: 3 days ago</p>
+                            <div class="patient-tags">
+                                <span class="tag">Depression</span>
+                                <span class="tag">Grief</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-secondary">View Profile</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Consultations Section -->
+            <section id="consultations" class="content-section">
+                <div class="section-header">
+                    <h1>Consultations</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Consultation
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Export Records
+                        </button>
+                    </div>
+                </div>
+
+                <div class="consultations-container">
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <h4>Ana Dela Cruz - Anxiety Management</h4>
+                            <span class="consultation-date">December 15, 2024</span>
+                        </div>
+                        <div class="consultation-content">
+                            <p><strong>Session Notes:</strong> Patient showed improvement in anxiety symptoms. Discussed breathing techniques and cognitive behavioral strategies. Recommended continued practice of mindfulness exercises.</p>
+                            <div class="consultation-meta">
+                                <span class="duration">60 minutes</span>
+                                <span class="type">Video Call</span>
+                                <span class="status">Completed</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn-secondary">Edit Notes</button>
+                            <button class="btn-primary">Schedule Follow-up</button>
+                        </div>
+                    </div>
+
+                    <div class="consultation-card">
+                        <div class="consultation-header">
+                            <h4>Maria Garcia - Depression Therapy</h4>
+                            <span class="consultation-date">December 12, 2024</span>
+                        </div>
+                        <div class="consultation-content">
+                            <p><strong>Session Notes:</strong> Patient continues to work through grief process. Expressed feeling more hopeful about the future. Discussed support system and self-care strategies.</p>
+                            <div class="consultation-meta">
+                                <span class="duration">60 minutes</span>
+                                <span class="type">Video Call</span>
+                                <span class="status">Completed</span>
+                            </div>
+                        </div>
+                        <div class="consultation-actions">
+                            <button class="btn-secondary">Edit Notes</button>
+                            <button class="btn-primary">Schedule Follow-up</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fees & Payments Section -->
+            <section id="fees" class="content-section">
+                <div class="section-header">
+                    <h1>Fees & Payments</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Set New Fee
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-download"></i>
+                            Download Report
+                        </button>
+                    </div>
+                </div>
+
+                <div class="fees-container">
+                    <div class="fees-overview">
+                        <div class="fee-card">
+                            <h3>Current Session Fee</h3>
+                            <p class="fee-amount">₱2,500</p>
+                            <p class="fee-duration">per 60-minute session</p>
+                            <button class="btn-secondary">Update Fee</button>
+                        </div>
+
+                        <div class="fee-card">
+                            <h3>This Month's Earnings</h3>
+                            <p class="fee-amount">₱85,420</p>
+                            <p class="fee-duration">from 34 sessions</p>
+                            <button class="btn-secondary">View Details</button>
+                        </div>
+
+                        <div class="fee-card">
+                            <h3>Pending Payments</h3>
+                            <p class="fee-amount">₱7,500</p>
+                            <p class="fee-duration">3 pending sessions</p>
+                            <button class="btn-primary">Process Payments</button>
+                        </div>
+                    </div>
+
+                    <div class="payment-history">
+                        <h3>Recent Payments</h3>
+                        <div class="payment-list">
+                            <div class="payment-item">
+                                <div class="payment-info">
+                                    <h4>Ana Dela Cruz</h4>
+                                    <p>Anxiety Management Session</p>
+                                    <span class="payment-date">Dec 15, 2024</span>
+                                </div>
+                                <div class="payment-amount">
+                                    <span class="amount">₱2,500</span>
+                                    <span class="status paid">Paid</span>
+                                </div>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-info">
+                                    <h4>Maria Garcia</h4>
+                                    <p>Depression Therapy Session</p>
+                                    <span class="payment-date">Dec 12, 2024</span>
+                                </div>
+                                <div class="payment-amount">
+                                    <span class="amount">₱2,500</span>
+                                    <span class="status paid">Paid</span>
+                                </div>
+                            </div>
+
+                            <div class="payment-item">
+                                <div class="payment-info">
+                                    <h4>Carlos Mendoza</h4>
+                                    <p>Initial Consultation</p>
+                                    <span class="payment-date">Dec 10, 2024</span>
+                                </div>
+                                <div class="payment-amount">
+                                    <span class="amount">₱2,500</span>
+                                    <span class="status pending">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section id="schedule" class="content-section">
+                <div class="section-header">
+                    <h1>Schedule</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Set Availability
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-calendar-alt"></i>
+                            View Calendar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="schedule-container">
+                    <div class="weekly-schedule">
+                        <h3>Weekly Schedule</h3>
+                        <div class="schedule-grid">
+                            <div class="schedule-day">
+                                <h4>Monday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot available">
+                                        <span>09:00 - 10:00</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                    <div class="time-slot booked">
+                                        <span>10:30 - 11:30</span>
+                                        <span class="status">Booked</span>
+                                    </div>
+                                    <div class="time-slot available">
+                                        <span>14:00 - 15:00</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-day">
+                                <h4>Tuesday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot booked">
+                                        <span>09:00 - 10:00</span>
+                                        <span class="status">Booked</span>
+                                    </div>
+                                    <div class="time-slot available">
+                                        <span>10:30 - 11:30</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                    <div class="time-slot available">
+                                        <span>14:00 - 15:00</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="schedule-day">
+                                <h4>Wednesday</h4>
+                                <div class="time-slots">
+                                    <div class="time-slot available">
+                                        <span>09:00 - 10:00</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                    <div class="time-slot available">
+                                        <span>10:30 - 11:30</span>
+                                        <span class="status">Available</span>
+                                    </div>
+                                    <div class="time-slot booked">
+                                        <span>14:00 - 15:00</span>
+                                        <span class="status">Booked</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="availability-settings">
+                        <h3>Availability Settings</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Session Duration</label>
+                                <select>
+                                    <option>45 minutes</option>
+                                    <option selected>60 minutes</option>
+                                    <option>90 minutes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Break Between Sessions</label>
+                                <select>
+                                    <option>15 minutes</option>
+                                    <option selected>30 minutes</option>
+                                    <option>45 minutes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Working Hours</label>
+                                <div class="time-range">
+                                    <input type="time" value="09:00">
+                                    <span>to</span>
+                                    <input type="time" value="17:00">
+                                </div>
+                            </div>
+                            <button class="btn-primary">Save Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h1>Reports</h1>
+                    <div class="header-actions">
+                        <button class="btn-primary">
+                            <i class="fas fa-download"></i>
+                            Export Report
+                        </button>
+                        <button class="btn-secondary">
+                            <i class="fas fa-calendar"></i>
+                            Date Range
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reports-container">
+                    <div class="report-cards">
+                        <div class="report-card">
+                            <h3>Patient Growth</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Chart visualization would go here</p>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <h3>Session Statistics</h3>
+                            <div class="stats-list">
+                                <div class="stat-item">
+                                    <span>Total Sessions</span>
+                                    <span>156</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Average Rating</span>
+                                    <span>4.8/5</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Completion Rate</span>
+                                    <span>94%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-card">
+                            <h3>Revenue Overview</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                                <p>Revenue chart would go here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="content-section">
+                <div class="section-header">
+                    <h1>Settings</h1>
+                </div>
+
+                <div class="settings-container">
+                    <div class="settings-section">
+                        <h3>Profile Information</h3>
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Dr. Maria Santos">
+                            </div>
+                            <div class="form-group">
+                                <label>Specialization</label>
+                                <input type="text" value="Clinical Psychology">
+                            </div>
+                            <div class="form-group">
+                                <label>License Number</label>
+                                <input type="text" value="PSY-12345">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="dr.santos@mello.ph">
+                            </div>
+                            <button class="btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Notification Preferences</h3>
+                        <div class="settings-form">
+                            <div class="form-group checkbox">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Email notifications for new appointments
+                                </label>
+                            </div>
+                            <div class="form-group checkbox">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    SMS reminders for upcoming sessions
+                                </label>
+                            </div>
+                            <div class="form-group checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Weekly practice reports
+                                </label>
+                            </div>
+                            <button class="btn-primary">Save Preferences</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notificationsPanel">
+        <div class="notifications-header">
+            <h3>Notifications</h3>
+            <button class="btn-icon" id="closeNotifications">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notifications-list">
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>New Appointment Request</h4>
+                    <p>Ana Dela Cruz requested a follow-up session</p>
+                    <span class="notification-time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>New Review</h4>
+                    <p>5-star review from Maria Garcia</p>
+                    <span class="notification-time">1 day ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="notification-content">
+                    <h4>Payment Received</h4>
+                    <p>₱2,500 payment from Carlos Mendoza</p>
+                    <span class="notification-time">2 days ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-profile">
+                    <img src="https://via.placeholder.com/50x50/667eea/ffffff?text=DR" alt="Dr. Santos" class="mobile-avatar">
+                    <div class="mobile-profile-info">
+                        <span class="mobile-profile-name">Dr. Maria Santos</span>
+                        <span class="mobile-profile-role">Psychologist</span>
+                    </div>
+                </div>
+                <button class="btn-icon mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <a href="#dashboard" class="mobile-nav-item active" data-section="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#appointments" class="mobile-nav-item" data-section="appointments">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="#patients" class="mobile-nav-item" data-section="patients">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+                <a href="#consultations" class="mobile-nav-item" data-section="consultations">
+                    <i class="fas fa-comments"></i>
+                    <span>Consultations</span>
+                </a>
+                <a href="#fees" class="mobile-nav-item" data-section="fees">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Fees & Payments</span>
+                </a>
+                <a href="#schedule" class="mobile-nav-item" data-section="schedule">
+                    <i class="fas fa-clock"></i>
+                    <span>Schedule</span>
+                </a>
+                <a href="#reports" class="mobile-nav-item" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#settings" class="mobile-nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <button class="btn-icon mobile-theme-toggle" id="mobileThemeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="practitioner-script.js"></script>
+</body>
+</html> 

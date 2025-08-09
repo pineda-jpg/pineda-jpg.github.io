@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mello ☁️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Mello Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1 class="brand-title">Mello ☁️</h1>
+                    <p class="brand-subtitle">Mindfulness. Empathy. Listening. Letting out.</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="signin.html" class="btn btn-primary">Sign In</a>
+                <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-icon" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>Menu</h2>
+            <button class="btn-icon" id="menuClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#main-content" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="himpil.html" class="mobile-nav-item">
+                <i class="fas fa-edit"></i>
+                <span>Himpil</span>
+            </a>
+            <a href="kalinga.html" class="mobile-nav-item">
+                <i class="fas fa-user-md"></i>
+                <span>Kalinga</span>
+            </a>
+            <a href="tara-kape.html" class="mobile-nav-item">
+                <i class="fas fa-coffee"></i>
+                <span>Tara, Kape!</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-container">
+                    <div class="hero-image">
+                         <div class="hero-icon">
+                             <img src="therapy.png" alt="Therapy and healing" class="therapy-image">
+                         </div>
+                     </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Welcome to Mello</h1>
+                    <div class="hero-quote">
+                        <p class="quote-text">Healing starts with hello.</p>
+                    </div>
+                    <p class="hero-subtitle">Where mindfulness meets empathy</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Users Helped</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support Available</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Anonymous</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2 class="section-title">Choose Your Path to Healing</h2>
+            <p class="section-subtitle">Find the support that feels right for you</p>
+            
+            <div class="services-grid">
+                <!-- Himpil Card -->
+                <div class="service-card himpil-card" onclick="window.location.href='himpil.html'">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="streak-badge">
+                            <i class="fas fa-fire"></i>
+                            <span class="streak-count">7</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Himpil</h3>
+                        <p class="card-description">Vent anonymously and see what others feel</p>
+                        <div class="streak-info">
+                            <div class="streak-progress">
+                                <div class="streak-bar">
+                                    <div class="streak-fill" style="width: 70%"></div>
+                                </div>
+                                <span class="streak-text">7 day streak! Keep going!</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-action">Start Venting</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Kalinga Card -->
+                <div class="service-card kalinga-card" onclick="window.location.href='kalinga.html'">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="status-badge online">
+                            <i class="fas fa-circle"></i>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Kalinga</h3>
+                        <p class="card-description">Talk to a mental health professional</p>
+                        <div class="professional-info">
+                            <div class="professional-avatar">
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQELDOMtChakcQ/profile-displayphoto-scale_200_200/B4DZfyf1ttHAAc-/0/1752120125092?e=2147483647&v=beta&t=maMp4i21W2hrRucnWeeDTwd1KSEN5PiOEU-doxxwrlQ" alt="Professional">
+                            </div>
+                            <div class="professional-details">
+                                <span class="professional-name">Dr. Maria Santos</span>
+                                <span class="professional-specialty">Psychologist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-action">Book Session</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Tara Kape Card -->
+                <div class="service-card tara-kape-card" onclick="window.location.href='tara-kape.html'">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="coffee-badge">
+                            <i class="fas fa-gift"></i>
+                            <span>40% to Kalinga</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tara, Kape!</h3>
+                        <p class="card-description">Have a 1-on-1 conversation with a listener</p>
+                        <div class="listener-info">
+                            <div class="listener-avatar">
+                                <img src="https://media.licdn.com/dms/image/v2/D4D03AQH7X7pOlYvhkg/profile-displayphoto-scale_200_200/B4DZhm8ZEjHYAY-/0/1754073765039?e=2147483647&v=beta&t=dTmQt7lFHXChhHduiYqJ6S0VxsA41o_rL1GWJ-bxVrI" alt="Listener">
+                            </div>
+                            <div class="listener-details">
+                                <span class="listener-name">Sarah</span>
+                                <span class="listener-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>(127)</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="card-action">Start Chat</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coffee Credits Section -->
+        <section class="coffee-credits-section">
+            <div class="coffee-card">
+                <div class="coffee-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <div class="coffee-content">
+                    <h3>✨ Send Coffee Credits</h3>
+                    <p>Support listeners and help fund mental health services</p>
+                    <div class="coffee-stats">
+                        <div class="coffee-stat">
+                            <span class="stat-value">₱50</span>
+                            <span class="stat-label">Average Gift</span>
+                        </div>
+                        <div class="coffee-stat">
+                            <span class="stat-value">40%</span>
+                            <span class="stat-label">To Kalinga</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary coffee-btn" onclick="openCoffeeModal()">
+                        <i class="fas fa-gift"></i>
+                        Send Coffee
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Safety & Privacy Section -->
+        <section class="safety-section">
+            <h2 class="section-title">Your Safety & Privacy</h2>
+            <div class="safety-grid">
+                <div class="safety-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>100% Anonymous</h3>
+                    <p>Your identity is protected. Share freely without fear.</p>
+                </div>
+                <div class="safety-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>End-to-End Encrypted</h3>
+                    <p>All conversations are private and secure.</p>
+                </div>
+                <div class="safety-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Non-Judgmental</h3>
+                    <p>Safe space where you can be yourself.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Coffee Credits Modal -->
+    <div class="modal" id="coffeeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>☕ Send Coffee Credits</h3>
+                <button class="btn-icon modal-close" onclick="closeCoffeeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Choose how many coffee credits to send:</p>
+                <div class="coffee-options">
+                    <button class="coffee-option" data-amount="50">
+                        <i class="fas fa-coffee"></i>
+                        <span>1 Coffee</span>
+                        <span class="price">₱50</span>
+                    </button>
+                    <button class="coffee-option" data-amount="100">
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <span>2 Coffees</span>
+                        <span class="price">₱100</span>
+                    </button>
+                    <button class="coffee-option" data-amount="200">
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <i class="fas fa-coffee"></i>
+                        <span>3 Coffees</span>
+                        <span class="price">₱200</span>
+                    </button>
+                </div>
+                <div class="coffee-benefit">
+                    <i class="fas fa-heart"></i>
+                    <span>40% of proceeds go to Kalinga beneficiaries</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeCoffeeModal()">Cancel</button>
+                <button class="btn-primary" onclick="sendCoffee()">Send Coffee</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Mello Logo" class="footer-logo">
+                <div class="footer-brand-text">
+                    <h3>Mello ☁️</h3>
+                    <p>Mindfulness. Empathy. Listening. Letting out.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Crisis Resources</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mello. Made with ❤️ for mental wellness.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

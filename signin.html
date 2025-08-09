@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Mello ☁️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="logo.png" alt="Mello Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1 class="brand-title">Mello ☁️</h1>
+                    <p class="brand-subtitle">Your quiet space to vent, talk, and heal</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <div class="signin-container">
+            <div class="signin-card">
+                <div class="signin-header">
+                    <img src="logo.png" alt="Mello Logo" class="signin-logo">
+                    <h1 class="signin-title">Welcome Back</h1>
+                    <p class="signin-subtitle">Sign in to continue your healing journey</p>
+                </div>
+
+                <form class="signin-form" id="signinForm">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" name="password" class="form-input" required placeholder="Enter your password">
+                            <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary signin-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <button class="btn-google" onclick="signinWithGoogle()">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" class="google-logo">
+                    Sign in with Google
+                </button>
+
+                <div class="signin-footer">
+                    <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Mello Logo" class="footer-logo">
+                <div class="footer-brand-text">
+                    <h3>Mello ☁️</h3>
+                    <p>Your quiet space to vent, talk, and heal</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Crisis Resources</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mello. Made with ❤️ for mental wellness.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Password visibility toggle
+        document.getElementById('passwordToggle').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'fas fa-eye-slash';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'fas fa-eye';
+            }
+        });
+
+        // Form submission
+        document.getElementById('signinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Basic validation
+            if (!email || !password || !confirmPassword) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            
+            // Simulate sign-in process
+            console.log('Sign-in attempt:', { email, password, rememberMe });
+            alert('Account created successfully! Redirecting to home page...');
+            
+            // Redirect to index page after successful sign-in
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+            
+            // In a real app, you would:
+            // 1. Send credentials to server
+            // 2. Validate response
+            // 3. Store auth token
+            // 4. Redirect to dashboard/profile
+        });
+
+        // Google sign-in
+        function signinWithGoogle() {
+            alert('Google sign-in functionality would be implemented here. Redirecting to home page...');
+            
+            // Redirect to index page after successful Google sign-in
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+            
+            // In a real app, you would:
+            // 1. Initialize Google OAuth
+            // 2. Handle OAuth flow
+            // 3. Process Google response
+            // 4. Create user account
+            // 5. Redirect to dashboard/profile
+        }
+    </script>
+</body>
+</html> 

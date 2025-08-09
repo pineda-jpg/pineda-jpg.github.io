@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalinga - Professional Therapy | Mello ☁️</title>
+    <link rel="stylesheet" href="kalinga-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Mello</span>
+                </a>
+                <img src="logo.png" alt="Mello Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1 class="brand-title">🧑‍⚕️ Kalinga</h1>
+                    <p class="brand-subtitle">Professional mental health care</p>
+                </div>
+            </div>
+            <div class="nav-actions">
+                <a href="signin.html" class="btn btn-primary">Sign In</a>
+                <button class="btn-icon" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-icon" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2>Kalinga Menu</h2>
+            <button class="btn-icon" id="menuClose" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#main-content" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#professionals" class="mobile-nav-item">
+                <i class="fas fa-user-md"></i>
+                <span>Professionals</span>
+            </a>
+            <a href="#booking" class="mobile-nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Book Session</span>
+            </a>
+            <a href="#my-sessions" class="mobile-nav-item">
+                <i class="fas fa-clock"></i>
+                <span>My Sessions</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Professional Mental Health Care</h1>
+                <p class="hero-subtitle">Connect with licensed professionals for personalized therapy sessions</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Licensed Professionals</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Confidential</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="scrollToSection('professionals')">
+                        <i class="fas fa-search"></i>
+                        Find Professional
+                    </button>
+                    <button class="btn-secondary" onclick="scrollToSection('booking')">
+                        <i class="fas fa-calendar"></i>
+                        Book Session
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professionals Section -->
+        <section id="professionals" class="professionals-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Mental Health Professionals</h2>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-specialty="all">
+                            <i class="fas fa-globe"></i>
+                            All Specialties
+                        </button>
+                        <button class="filter-btn" data-specialty="anxiety">
+                            <i class="fas fa-worried"></i>
+                            Anxiety
+                        </button>
+                        <button class="filter-btn" data-specialty="depression">
+                            <i class="fas fa-sad-tear"></i>
+                            Depression
+                        </button>
+                        <button class="filter-btn" data-specialty="trauma">
+                            <i class="fas fa-heart"></i>
+                            Trauma
+                        </button>
+                        <button class="filter-btn" data-specialty="relationships">
+                            <i class="fas fa-users"></i>
+                            Relationships
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="professionals-grid" id="professionalsGrid">
+                    <!-- Professional cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking-section">
+            <div class="container">
+                <h2 class="section-title">Book Your Session</h2>
+                <div class="booking-card">
+                    <div class="booking-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <span>Choose Professional</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <span>Select Date & Time</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <span>Confirm Booking</span>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-content">
+                        <!-- Step 1: Choose Professional -->
+                        <div class="booking-step active" id="step1">
+                            <h3>Select a Professional</h3>
+                            <p>Choose from our licensed mental health professionals</p>
+                            <div class="professional-selection">
+                                <div class="professional-option selected" data-professional="dr-santos">
+                                    <div class="professional-avatar">
+                                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQELDOMtChakcQ/profile-displayphoto-scale_200_200/B4DZfyf1ttHAAc-/0/1752120125092?e=2147483647&v=beta&t=maMp4i21W2hrRucnWeeDTwd1KSEN5PiOEU-doxxwrlQ" alt="Dr. Santos">
+                                    </div>
+                                    <div class="professional-details">
+                                        <h4>Dr. Maria Santos</h4>
+                                        <span class="specialty">Clinical Psychologist</span>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(127 reviews)</span>
+                                        </div>
+                                        <span class="price">₱1,500/session</span>
+                                    </div>
+                                    <div class="status-badge online">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Online</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="professional-option" data-professional="dr-garcia">
+                                    <div class="professional-avatar">
+                                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQH7X7pOlYvhkg/profile-displayphoto-scale_200_200/B4DZhm8ZEjHYAY-/0/1754073765039?e=2147483647&v=beta&t=dTmQt7lFHXChhHduiYqJ6S0VxsA41o_rL1GWJ-bxVrI" alt="Dr. Garcia">
+                                    </div>
+                                    <div class="professional-details">
+                                        <h4>Dr. Carlos Garcia</h4>
+                                        <span class="specialty">Psychiatrist</span>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(89 reviews)</span>
+                                        </div>
+                                        <span class="price">₱2,000/session</span>
+                                    </div>
+                                    <div class="status-badge online">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Online</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="professional-option" data-professional="dr-cruz">
+                                    <div class="professional-avatar">
+                                        <img src="https://via.placeholder.com/60x60/4ade80/ffffff?text=DR" alt="Dr. Cruz">
+                                    </div>
+                                    <div class="professional-details">
+                                        <h4>Dr. Ana Cruz</h4>
+                                        <span class="specialty">Counseling Psychologist</span>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(156 reviews)</span>
+                                        </div>
+                                        <span class="price">₱1,200/session</span>
+                                    </div>
+                                    <div class="status-badge offline">
+                                        <i class="fas fa-circle"></i>
+                                        <span>Offline</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn-primary" onclick="nextStep(2)">
+                                    Next Step
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Select Date & Time -->
+                        <div class="booking-step" id="step2">
+                            <h3>Choose Date & Time</h3>
+                            <p>Select a convenient time for your session</p>
+                            <div class="date-time-selection">
+                                <div class="date-picker">
+                                    <h4>Select Date</h4>
+                                    <div class="calendar-grid">
+                                        <div class="calendar-day available">
+                                            <span class="day-number">15</span>
+                                            <span class="day-label">Today</span>
+                                        </div>
+                                        <div class="calendar-day available">
+                                            <span class="day-number">16</span>
+                                            <span class="day-label">Tomorrow</span>
+                                        </div>
+                                        <div class="calendar-day available">
+                                            <span class="day-number">17</span>
+                                            <span class="day-label">Wed</span>
+                                        </div>
+                                        <div class="calendar-day available">
+                                            <span class="day-number">18</span>
+                                            <span class="day-label">Thu</span>
+                                        </div>
+                                        <div class="calendar-day available">
+                                            <span class="day-number">19</span>
+                                            <span class="day-label">Fri</span>
+                                        </div>
+                                        <div class="calendar-day unavailable">
+                                            <span class="day-number">20</span>
+                                            <span class="day-label">Sat</span>
+                                        </div>
+                                        <div class="calendar-day unavailable">
+                                            <span class="day-number">21</span>
+                                            <span class="day-label">Sun</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="time-picker">
+                                    <h4>Select Time</h4>
+                                    <div class="time-slots">
+                                        <button class="time-slot available">9:00 AM</button>
+                                        <button class="time-slot available">10:00 AM</button>
+                                        <button class="time-slot available">11:00 AM</button>
+                                        <button class="time-slot unavailable">12:00 PM</button>
+                                        <button class="time-slot available">2:00 PM</button>
+                                        <button class="time-slot available">3:00 PM</button>
+                                        <button class="time-slot available">4:00 PM</button>
+                                        <button class="time-slot available">5:00 PM</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn-secondary" onclick="prevStep(1)">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Previous
+                                </button>
+                                <button class="btn-primary" onclick="nextStep(3)">
+                                    Next Step
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Confirm Booking -->
+                        <div class="booking-step" id="step3">
+                            <h3>Confirm Your Booking</h3>
+                            <p>Review your session details before confirming</p>
+                            <div class="booking-summary">
+                                <div class="summary-item">
+                                    <span class="summary-label">Professional:</span>
+                                    <span class="summary-value">Dr. Maria Santos</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Date:</span>
+                                    <span class="summary-value">December 16, 2024</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Time:</span>
+                                    <span class="summary-value">10:00 AM</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Duration:</span>
+                                    <span class="summary-value">50 minutes</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Session Type:</span>
+                                    <span class="summary-value">Video Call</span>
+                                </div>
+                                <div class="summary-item total">
+                                    <span class="summary-label">Total:</span>
+                                    <span class="summary-value">₱1,500</span>
+                                </div>
+                            </div>
+                            <div class="step-actions">
+                                <button class="btn-secondary" onclick="prevStep(2)">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Previous
+                                </button>
+                                <button class="btn-primary" onclick="confirmBooking()">
+                                    <i class="fas fa-check"></i>
+                                    Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Sessions Section -->
+        <section id="my-sessions" class="sessions-section">
+            <div class="container">
+                <h2 class="section-title">My Sessions</h2>
+                <div class="sessions-grid">
+                    <div class="session-card upcoming">
+                        <div class="session-header">
+                            <div class="session-type">
+                                <i class="fas fa-video"></i>
+                                <span>Video Session</span>
+                            </div>
+                            <div class="session-status">
+                                <span class="status-badge upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                        <div class="session-details">
+                            <div class="professional-info">
+                                <img src="https://via.placeholder.com/40x40/667eea/ffffff?text=DR" alt="Dr. Santos">
+                                <div>
+                                    <h4>Dr. Maria Santos</h4>
+                                    <span>Clinical Psychologist</span>
+                                </div>
+                            </div>
+                            <div class="session-time">
+                                <i class="fas fa-calendar"></i>
+                                <span>Dec 16, 2024 at 10:00 AM</span>
+                            </div>
+                            <div class="session-duration">
+                                <i class="fas fa-clock"></i>
+                                <span>50 minutes</span>
+                            </div>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-video"></i>
+                                Join Session
+                            </button>
+                            <button class="btn-secondary">
+                                <i class="fas fa-calendar"></i>
+                                Reschedule
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="session-card completed">
+                        <div class="session-header">
+                            <div class="session-type">
+                                <i class="fas fa-video"></i>
+                                <span>Video Session</span>
+                            </div>
+                            <div class="session-status">
+                                <span class="status-badge completed">Completed</span>
+                            </div>
+                        </div>
+                        <div class="session-details">
+                            <div class="professional-info">
+                                <img src="https://via.placeholder.com/40x40/ea3097/ffffff?text=DR" alt="Dr. Garcia">
+                                <div>
+                                    <h4>Dr. Carlos Garcia</h4>
+                                    <span>Psychiatrist</span>
+                                </div>
+                            </div>
+                            <div class="session-time">
+                                <i class="fas fa-calendar"></i>
+                                <span>Dec 10, 2024 at 2:00 PM</span>
+                            </div>
+                            <div class="session-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>Excellent session!</span>
+                            </div>
+                        </div>
+                        <div class="session-actions">
+                            <button class="btn-secondary">
+                                <i class="fas fa-file-alt"></i>
+                                View Notes
+                            </button>
+                            <button class="btn-primary">
+                                <i class="fas fa-calendar"></i>
+                                Book Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Kalinga -->
+        <section class="why-kalinga-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Kalinga?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Licensed Professionals</h3>
+                        <p>All our therapists are licensed and certified mental health professionals with years of experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>100% Confidential</h3>
+                        <p>Your sessions are completely private and protected by strict confidentiality agreements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Flexible Scheduling</h3>
+                        <p>Book sessions at your convenience with 24/7 availability and easy rescheduling.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Secure Video Calls</h3>
+                        <p>High-quality, encrypted video sessions from the comfort of your own space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Success Modal -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎉 Booking Confirmed!</h3>
+                <button class="btn-icon modal-close" onclick="closeBookingModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="success-animation">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <p>Your session has been successfully booked!</p>
+                <div class="booking-details">
+                    <div class="detail-item">
+                        <i class="fas fa-user-md"></i>
+                        <span>Dr. Maria Santos</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>Dec 16, 2024 at 10:00 AM</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-video"></i>
+                        <span>Video Session</span>
+                    </div>
+                </div>
+                <div class="reminder">
+                    <i class="fas fa-bell"></i>
+                    <span>You'll receive a reminder 15 minutes before your session</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeBookingModal()">View My Sessions</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Mello ☁️</h3>
+                <p>Your quiet space to vent, talk, and heal</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="himpil.html" class="footer-link">Himpil</a>
+                <a href="tara-kape.html" class="footer-link">Tara, Kape!</a>
+                <a href="#" class="footer-link">Crisis Resources</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mello. Made with ❤️ for mental wellness.</p>
+        </div>
+    </footer>
+
+    <script src="kalinga-script.js"></script>
+</body>
+</html> 
