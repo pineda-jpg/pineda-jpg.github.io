@@ -328,6 +328,10 @@ body {
     padding: var(--spacing-3xl) var(--spacing-lg);
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-section::before {
@@ -350,6 +354,7 @@ body {
     gap: var(--spacing-3xl);
     z-index: 2;
     position: relative;
+    width: 100%;
 }
 
 .hero-image {
@@ -1195,6 +1200,7 @@ body {
     
     .hero-section {
         padding: var(--spacing-xl) var(--spacing-md);
+        min-height: 100vh;
     }
     
     .hero-container {
@@ -1284,7 +1290,64 @@ body {
 
 .signin-header {
     text-align: center;
-    margin-bottom: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.user-type-selector {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.user-type-selector h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+.user-type-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.user-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 120px;
+}
+
+.user-type-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.user-type-btn.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.user-type-btn i {
+    font-size: var(--font-size-xl);
+}
+
+.user-type-btn span {
+    font-weight: 500;
+    font-size: var(--font-size-sm);
 }
 
 .signin-logo {

@@ -40,6 +40,20 @@
                     <p class="signin-subtitle">Sign in to continue your healing journey</p>
                 </div>
 
+                <div class="user-type-selector">
+                    <h3>I am a:</h3>
+                    <div class="user-type-buttons">
+                        <button type="button" class="user-type-btn active" data-type="user">
+                            <i class="fas fa-user"></i>
+                            <span>User</span>
+                        </button>
+                        <button type="button" class="user-type-btn" data-type="practitioner">
+                            <i class="fas fa-user-md"></i>
+                            <span>Practitioner</span>
+                        </button>
+                    </div>
+                </div>
+
                 <form class="signin-form" id="signinForm">
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
@@ -128,40 +142,59 @@
             }
         });
 
+        // User type selection
+        let selectedUserType = 'user';
+        
+        document.querySelectorAll('.user-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.user-type-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                selectedUserType = this.dataset.type;
+            });
+        });
+
         // Form submission
         document.getElementById('signinForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
             const rememberMe = document.getElementById('rememberMe').checked;
             
             // Basic validation
-            if (!email || !password || !confirmPassword) {
+            if (!email || !password) {
                 alert('Please fill in all required fields.');
                 return;
             }
             
-            if (password !== confirmPassword) {
-                alert('Passwords do not match.');
-                return;
+            // Simulate sign-in process
+            console.log('Sign-in attempt:', { email, password, rememberMe, userType: selectedUserType });
+            
+            let redirectMessage = '';
+            let redirectUrl = '';
+            
+            if (selectedUserType === 'practitioner') {
+                redirectMessage = 'Welcome, Practitioner! Redirecting to practitioner dashboard...';
+                redirectUrl = 'practitioner.html';
+            } else {
+                redirectMessage = 'Welcome back! Redirecting to home page...';
+                redirectUrl = 'index.html';
             }
             
-            // Simulate sign-in process
-            console.log('Sign-in attempt:', { email, password, rememberMe });
-            alert('Account created successfully! Redirecting to home page...');
+            alert(redirectMessage);
             
-            // Redirect to index page after successful sign-in
+            // Redirect based on user type
             setTimeout(() => {
-                window.location.href = 'index.html';
+                window.location.href = redirectUrl;
             }, 1500);
             
             // In a real app, you would:
             // 1. Send credentials to server
             // 2. Validate response
-            // 3. Store auth token
-            // 4. Redirect to dashboard/profile
+            // 3. Store auth token and user type
+            // 4. Redirect to appropriate dashboard
         });
 
         // Google sign-in

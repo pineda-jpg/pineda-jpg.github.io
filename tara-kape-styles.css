@@ -1520,6 +1520,40 @@ body {
     .modal-content {
         max-height: 95vh;
     }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .listeners-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .safety-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .coffee-options-modal {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .coffee-option-modal {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* Accessibility Improvements */
